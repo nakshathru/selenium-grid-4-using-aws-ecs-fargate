@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "dentalxchage-qa-automation-stack": {
-        "id": "dentalxchage-qa-automation-stack",
-        "path": "dentalxchage-qa-automation-stack",
+      "dentalx-selenium-automation-stack": {
+        "id": "dentalx-selenium-automation-stack",
+        "path": "dentalx-selenium-automation-stack",
         "children": {
           "DentalXChangeSeleniumCluster": {
             "id": "DentalXChangeSeleniumCluster",
-            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster",
+            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster",
             "children": {
               "ImportVPC": {
                 "id": "ImportVPC",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/ImportVPC",
                 "children": {
                   "PublicSubnet1": {
                     "id": "PublicSubnet1",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PublicSubnet1",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PublicSubnet1",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.93.0"
@@ -26,7 +26,7 @@
                   },
                   "PublicSubnet2": {
                     "id": "PublicSubnet2",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PublicSubnet2",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PublicSubnet2",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.93.0"
@@ -34,7 +34,7 @@
                   },
                   "PrivateSubnet1": {
                     "id": "PrivateSubnet1",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PrivateSubnet1",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PrivateSubnet1",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.93.0"
@@ -42,7 +42,7 @@
                   },
                   "PrivateSubnet2": {
                     "id": "PrivateSubnet2",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PrivateSubnet2",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PrivateSubnet2",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.93.0"
@@ -56,11 +56,11 @@
               },
               "cluster": {
                 "id": "cluster",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/cluster",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/cluster/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ECS::Cluster",
                       "aws:cdk:cloudformation:props": {
@@ -68,7 +68,7 @@
                           "FARGATE",
                           "FARGATE_SPOT"
                         ],
-                        "clusterName": "dentalxchange-selenium",
+                        "clusterName": "dentalx-selenium-grid-cluster",
                         "clusterSettings": [
                           {
                             "name": "containerInsights",
@@ -95,15 +95,15 @@
                   },
                   "DefaultServiceDiscoveryNamespace": {
                     "id": "DefaultServiceDiscoveryNamespace",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ServiceDiscovery::HttpNamespace",
                           "aws:cdk:cloudformation:props": {
-                            "name": "dentalx-selenium-grid"
+                            "name": "dentalxchange-selenium"
                           }
                         },
                         "constructInfo": {
@@ -123,17 +123,17 @@
                   "version": "2.93.0"
                 }
               },
-              "dentalxchange-selenium-sg": {
-                "id": "dentalxchange-selenium-sg",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg",
+              "dentalxchange-selenium-alb-sg": {
+                "id": "dentalxchange-selenium-alb-sg",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb-sg",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb-sg/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
                       "aws:cdk:cloudformation:props": {
-                        "groupDescription": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg",
+                        "groupDescription": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb-sg",
                         "securityGroupEgress": [
                           {
                             "cidrIp": "0.0.0.0/0",
@@ -142,34 +142,6 @@
                           }
                         ],
                         "securityGroupIngress": [
-                          {
-                            "cidrIp": "0.0.0.0/0",
-                            "ipProtocol": "tcp",
-                            "fromPort": 4444,
-                            "toPort": 4444,
-                            "description": "Port 4444 for inbound traffic"
-                          },
-                          {
-                            "cidrIp": "0.0.0.0/0",
-                            "ipProtocol": "tcp",
-                            "fromPort": 5555,
-                            "toPort": 5555,
-                            "description": "Port 5555 for inbound traffic"
-                          },
-                          {
-                            "cidrIp": "0.0.0.0/0",
-                            "ipProtocol": "tcp",
-                            "fromPort": 4442,
-                            "toPort": 4442,
-                            "description": "Port 4442 for inbound traffic"
-                          },
-                          {
-                            "cidrIp": "0.0.0.0/0",
-                            "ipProtocol": "tcp",
-                            "fromPort": 4443,
-                            "toPort": 4443,
-                            "description": "Port 4443 for inbound traffic"
-                          },
                           {
                             "cidrIp": "0.0.0.0/0",
                             "ipProtocol": "tcp",
@@ -185,64 +157,6 @@
                       "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
                       "version": "2.93.0"
                     }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4444": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4444",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4444",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "description": "Load balancer to target",
-                        "fromPort": 4444,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "ipProtocol": "tcp",
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 4444
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
-                      "version": "2.93.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "description": "Load balancer to target",
-                        "fromPort": 4444,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "ipProtocol": "tcp",
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 4444
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
-                      "version": "2.93.0"
-                    }
                   }
                 },
                 "constructInfo": {
@@ -252,11 +166,11 @@
               },
               "dentalxchange-selenium-alb": {
                 "id": "dentalxchange-selenium-alb",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
                       "aws:cdk:cloudformation:props": {
@@ -266,17 +180,12 @@
                             "value": "false"
                           }
                         ],
+                        "name": "dentalx-selenium-grid-alb",
                         "scheme": "internet-facing",
                         "securityGroups": [
                           {
                             "Fn::GetAtt": [
-                              "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                              "GroupId"
-                            ]
-                          },
-                          {
-                            "Fn::GetAtt": [
-                              "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
+                              "DentalXChangeSeleniumClusterdentalxchangeseleniumalbsg7211715A",
                               "GroupId"
                             ]
                           }
@@ -293,76 +202,13 @@
                       "version": "2.93.0"
                     }
                   },
-                  "SecurityGroup": {
-                    "id": "SecurityGroup",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
-                          "aws:cdk:cloudformation:props": {
-                            "groupDescription": "Automatically created Security Group for ELB dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbD88128AC",
-                            "securityGroupIngress": [
-                              {
-                                "cidrIp": "0.0.0.0/0",
-                                "ipProtocol": "tcp",
-                                "fromPort": 80,
-                                "toPort": 80,
-                                "description": "Allow from anyone on port 80"
-                              }
-                            ],
-                            "vpcId": "vpc-0c22a4472f6bddf04"
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
-                          "version": "2.93.0"
-                        }
-                      },
-                      "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444": {
-                        "id": "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
-                          "aws:cdk:cloudformation:props": {
-                            "description": "Load balancer to target",
-                            "destinationSecurityGroupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                                "GroupId"
-                              ]
-                            },
-                            "fromPort": 4444,
-                            "groupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                                "GroupId"
-                              ]
-                            },
-                            "ipProtocol": "tcp",
-                            "toPort": 4444
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupEgress",
-                          "version": "2.93.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
-                      "version": "2.93.0"
-                    }
-                  },
                   "Listener80": {
                     "id": "Listener80",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
                           "aws:cdk:cloudformation:props": {
@@ -388,11 +234,11 @@
                       },
                       "ECSGroup": {
                         "id": "ECSGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                               "aws:cdk:cloudformation:props": {
@@ -434,17 +280,108 @@
                   "version": "2.93.0"
                 }
               },
+              "dentalxchange-selenium-sg": {
+                "id": "dentalxchange-selenium-sg",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroup",
+                      "aws:cdk:cloudformation:props": {
+                        "groupDescription": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg",
+                        "securityGroupEgress": [
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "description": "Allow all outbound traffic by default",
+                            "ipProtocol": "-1"
+                          }
+                        ],
+                        "securityGroupIngress": [
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "ipProtocol": "tcp",
+                            "fromPort": 4444,
+                            "toPort": 4444,
+                            "description": "Port 4444 for inbound traffic"
+                          },
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "ipProtocol": "tcp",
+                            "fromPort": 5555,
+                            "toPort": 5555,
+                            "description": "Port 5555 for inbound traffic"
+                          },
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "ipProtocol": "tcp",
+                            "fromPort": 4442,
+                            "toPort": 4442,
+                            "description": "Port 4442 for inbound traffic"
+                          },
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "ipProtocol": "tcp",
+                            "fromPort": 4443,
+                            "toPort": 4443,
+                            "description": "Port 4443 for inbound traffic"
+                          }
+                        ],
+                        "vpcId": "vpc-0c22a4472f6bddf04"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                      "version": "2.93.0"
+                    }
+                  },
+                  "from dentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbsgB657A66E:4444": {
+                    "id": "from dentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbsgB657A66E:4444",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbsgB657A66E:4444",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
+                      "aws:cdk:cloudformation:props": {
+                        "description": "Load balancer to target",
+                        "fromPort": 4444,
+                        "groupId": {
+                          "Fn::GetAtt": [
+                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
+                            "GroupId"
+                          ]
+                        },
+                        "ipProtocol": "tcp",
+                        "sourceSecurityGroupId": {
+                          "Fn::GetAtt": [
+                            "DentalXChangeSeleniumClusterdentalxchangeseleniumalbsg7211715A",
+                            "GroupId"
+                          ]
+                        },
+                        "toPort": 4444
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
+                      "version": "2.93.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+                  "version": "2.93.0"
+                }
+              },
               "dentalx-selenium-hub-task-def": {
                 "id": "dentalx-selenium-hub-task-def",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def",
                 "children": {
                   "TaskRole": {
                     "id": "TaskRole",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole",
                     "children": {
                       "ImportTaskRole": {
                         "id": "ImportTaskRole",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/ImportTaskRole",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/ImportTaskRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.93.0"
@@ -452,7 +389,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -477,11 +414,11 @@
                       },
                       "DefaultPolicy": {
                         "id": "DefaultPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/DefaultPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/DefaultPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/DefaultPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/DefaultPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                               "aws:cdk:cloudformation:props": {
@@ -541,7 +478,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
                       "aws:cdk:cloudformation:props": {
@@ -549,24 +486,33 @@
                           {
                             "cpu": 1024,
                             "essential": true,
-                            "image": "selenium/hub:latest",
+                            "image": "selenium/hub:4.11.0",
                             "memory": 2048,
                             "name": "selenium-hub-container",
                             "portMappings": [
                               {
                                 "containerPort": 4444,
                                 "hostPort": 4444,
-                                "protocol": "tcp"
+                                "protocol": "tcp",
+                                "name": "selenium-hub-container-4444-tcp"
                               },
                               {
                                 "containerPort": 4443,
                                 "hostPort": 4443,
-                                "protocol": "tcp"
+                                "protocol": "tcp",
+                                "name": "selenium-hub-container-4443-tcp"
                               },
                               {
                                 "containerPort": 4442,
                                 "hostPort": 4442,
-                                "protocol": "tcp"
+                                "protocol": "tcp",
+                                "name": "selenium-hub-container-4442-tcp"
+                              },
+                              {
+                                "containerPort": 5555,
+                                "hostPort": 5555,
+                                "protocol": "tcp",
+                                "name": "selenium-node-container-5555-tcp"
                               }
                             ],
                             "logConfiguration": {
@@ -594,7 +540,7 @@
                             "Arn"
                           ]
                         },
-                        "family": "dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxseleniumhubtaskdefD24085A0",
+                        "family": "dentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxseleniumhubtaskdef41FF6FE8",
                         "memory": "2048",
                         "networkMode": "awsvpc",
                         "requiresCompatibilities": [
@@ -615,15 +561,15 @@
                   },
                   "selenium-hub-container": {
                     "id": "selenium-hub-container",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container",
                     "children": {
                       "LogGroup": {
                         "id": "LogGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container/LogGroup",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container/LogGroup",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container/LogGroup/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container/LogGroup/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                               "aws:cdk:cloudformation:props": {}
@@ -647,11 +593,11 @@
                   },
                   "ExecutionRole": {
                     "id": "ExecutionRole",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole",
                     "children": {
                       "ImportExecutionRole": {
                         "id": "ImportExecutionRole",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/ImportExecutionRole",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/ImportExecutionRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.93.0"
@@ -659,7 +605,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -684,11 +630,11 @@
                       },
                       "DefaultPolicy": {
                         "id": "DefaultPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/DefaultPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/DefaultPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/DefaultPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/DefaultPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                               "aws:cdk:cloudformation:props": {
@@ -743,11 +689,11 @@
               },
               "dentalx-selenium-hub-service": {
                 "id": "dentalx-selenium-hub-service",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service",
                 "children": {
                   "Service": {
                     "id": "Service",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service/Service",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service/Service",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ECS::Service",
                       "aws:cdk:cloudformation:props": {
@@ -755,8 +701,8 @@
                           "Ref": "DentalXChangeSeleniumClusterclusterA1039259"
                         },
                         "deploymentConfiguration": {
-                          "maximumPercent": 100,
-                          "minimumHealthyPercent": 75,
+                          "maximumPercent": 200,
+                          "minimumHealthyPercent": 100,
                           "alarms": {
                             "alarmNames": [],
                             "enable": false,
@@ -794,6 +740,33 @@
                             ]
                           }
                         },
+                        "serviceConnectConfiguration": {
+                          "enabled": true,
+                          "namespace": "dentalxchange-selenium",
+                          "services": [
+                            {
+                              "portName": "selenium-hub-container-4443-tcp",
+                              "discoveryName": "dentalx-se-sub",
+                              "clientAliases": [
+                                {
+                                  "port": 4443,
+                                  "dnsName": "dentalx-se-hub"
+                                }
+                              ]
+                            },
+                            {
+                              "portName": "selenium-hub-container-4442-tcp",
+                              "discoveryName": "dentalx-se-pub",
+                              "clientAliases": [
+                                {
+                                  "port": 4442,
+                                  "dnsName": "dentalx-se-hub"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "serviceName": "dentalx-se-hub-service",
                         "taskDefinition": {
                           "Ref": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdef45483497"
                         }
@@ -812,15 +785,15 @@
               },
               "selenium-scalableTarget-hub": {
                 "id": "selenium-scalableTarget-hub",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub",
                 "children": {
                   "Role": {
                     "id": "Role",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role",
                     "children": {
                       "ImportRole": {
                         "id": "ImportRole",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/ImportRole",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/ImportRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.93.0"
@@ -828,7 +801,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -859,11 +832,11 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalableTarget",
                       "aws:cdk:cloudformation:props": {
-                        "maxCapacity": 10,
+                        "maxCapacity": 20,
                         "minCapacity": 1,
                         "resourceId": {
                           "Fn::Join": [
@@ -900,19 +873,19 @@
                   },
                   "step-metric-scaling-hub": {
                     "id": "step-metric-scaling-hub",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub",
                     "children": {
                       "LowerPolicy": {
                         "id": "LowerPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
                               "aws:cdk:cloudformation:props": {
-                                "policyName": "dentalxchageqaautomationstackDentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubLowerPolicy6C7050B4",
+                                "policyName": "dentalxseleniumautomationstackDentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubLowerPolicy8ECB4DF2",
                                 "policyType": "StepScaling",
                                 "scalingTargetId": {
                                   "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargethubC7300963"
@@ -943,11 +916,11 @@
                       },
                       "LowerAlarm": {
                         "id": "LowerAlarm",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerAlarm",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerAlarm",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerAlarm/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerAlarm/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
@@ -996,15 +969,15 @@
                       },
                       "UpperPolicy": {
                         "id": "UpperPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
                               "aws:cdk:cloudformation:props": {
-                                "policyName": "dentalxchageqaautomationstackDentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubUpperPolicy526F0B89",
+                                "policyName": "dentalxseleniumautomationstackDentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubUpperPolicy1F7E1EFF",
                                 "policyType": "StepScaling",
                                 "scalingTargetId": {
                                   "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargethubC7300963"
@@ -1035,11 +1008,11 @@
                       },
                       "UpperAlarm": {
                         "id": "UpperAlarm",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperAlarm",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperAlarm",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperAlarm/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperAlarm/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
@@ -1072,7 +1045,7 @@
                                 "namespace": "AWS/ECS",
                                 "period": 10,
                                 "statistic": "Maximum",
-                                "threshold": 80
+                                "threshold": 60
                               }
                             },
                             "constructInfo": {
@@ -1100,15 +1073,15 @@
               },
               "dentalx-selenium-chrome-task-def": {
                 "id": "dentalx-selenium-chrome-task-def",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def",
                 "children": {
                   "TaskRole": {
                     "id": "TaskRole",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole",
                     "children": {
                       "ImportTaskRole": {
                         "id": "ImportTaskRole",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/ImportTaskRole",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/ImportTaskRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.93.0"
@@ -1116,7 +1089,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -1141,11 +1114,11 @@
                       },
                       "DefaultPolicy": {
                         "id": "DefaultPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/DefaultPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/DefaultPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/DefaultPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/DefaultPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                               "aws:cdk:cloudformation:props": {
@@ -1205,7 +1178,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ECS::TaskDefinition",
                       "aws:cdk:cloudformation:props": {
@@ -1214,20 +1187,39 @@
                             "command": [
                               "PRIVATE=$(curl -s http://169.254.170.2/v2/metadata | jq -r '.Containers[0].Networks[0].IPv4Addresses[0]') ; export SE_OPTS=\"--host $PRIVATE\" ; /opt/bin/entry_point.sh"
                             ],
-                            "cpu": 1024,
+                            "cpu": 512,
                             "entryPoint": [
                               "sh",
                               "-c"
                             ],
                             "essential": true,
-                            "image": "selenium/node-chrome:latest",
-                            "memory": 2048,
+                            "image": "selenium/node-chrome:4.11.0",
+                            "memory": 1024,
                             "name": "selenium-chrome-container",
                             "portMappings": [
                               {
+                                "containerPort": 4444,
+                                "hostPort": 4444,
+                                "protocol": "tcp",
+                                "name": "selenium-hub-container-4444-tcp"
+                              },
+                              {
+                                "containerPort": 4443,
+                                "hostPort": 4443,
+                                "protocol": "tcp",
+                                "name": "selenium-hub-container-4443-tcp"
+                              },
+                              {
+                                "containerPort": 4442,
+                                "hostPort": 4442,
+                                "protocol": "tcp",
+                                "name": "selenium-hub-container-4442-tcp"
+                              },
+                              {
                                 "containerPort": 5555,
                                 "hostPort": 5555,
-                                "protocol": "tcp"
+                                "protocol": "tcp",
+                                "name": "selenium-node-container-5555-tcp"
                               }
                             ],
                             "logConfiguration": {
@@ -1268,15 +1260,15 @@
                             ]
                           }
                         ],
-                        "cpu": "1024",
+                        "cpu": "512",
                         "executionRoleArn": {
                           "Fn::GetAtt": [
                             "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdefExecutionRole17AE0CCB",
                             "Arn"
                           ]
                         },
-                        "family": "dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxseleniumchrometaskdef3F23D3C2",
-                        "memory": "2048",
+                        "family": "dentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxseleniumchrometaskdef5AB4A96A",
+                        "memory": "1024",
                         "networkMode": "awsvpc",
                         "requiresCompatibilities": [
                           "FARGATE"
@@ -1296,15 +1288,15 @@
                   },
                   "selenium-chrome-container": {
                     "id": "selenium-chrome-container",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container",
                     "children": {
                       "LogGroup": {
                         "id": "LogGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container/LogGroup",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container/LogGroup",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container/LogGroup/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container/LogGroup/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::Logs::LogGroup",
                               "aws:cdk:cloudformation:props": {}
@@ -1328,11 +1320,11 @@
                   },
                   "ExecutionRole": {
                     "id": "ExecutionRole",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole",
                     "children": {
                       "ImportExecutionRole": {
                         "id": "ImportExecutionRole",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/ImportExecutionRole",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/ImportExecutionRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.93.0"
@@ -1340,7 +1332,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -1365,11 +1357,11 @@
                       },
                       "DefaultPolicy": {
                         "id": "DefaultPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/DefaultPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/DefaultPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/DefaultPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/DefaultPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                               "aws:cdk:cloudformation:props": {
@@ -1424,11 +1416,11 @@
               },
               "dentalx-selenium-chrome-service": {
                 "id": "dentalx-selenium-chrome-service",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-service",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-service",
                 "children": {
                   "Service": {
                     "id": "Service",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-service/Service",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-service/Service",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ECS::Service",
                       "aws:cdk:cloudformation:props": {
@@ -1436,8 +1428,8 @@
                           "Ref": "DentalXChangeSeleniumClusterclusterA1039259"
                         },
                         "deploymentConfiguration": {
-                          "maximumPercent": 100,
-                          "minimumHealthyPercent": 75,
+                          "maximumPercent": 200,
+                          "minimumHealthyPercent": 100,
                           "alarms": {
                             "alarmNames": [],
                             "enable": false,
@@ -1465,6 +1457,11 @@
                             ]
                           }
                         },
+                        "serviceConnectConfiguration": {
+                          "enabled": true,
+                          "namespace": "dentalxchange-selenium"
+                        },
+                        "serviceName": "dentalx-se-chrome-node-service",
                         "taskDefinition": {
                           "Ref": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdef012DBD87"
                         }
@@ -1483,15 +1480,15 @@
               },
               "selenium-scalableTarget-chrome": {
                 "id": "selenium-scalableTarget-chrome",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome",
                 "children": {
                   "Role": {
                     "id": "Role",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role",
                     "children": {
                       "ImportRole": {
                         "id": "ImportRole",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/ImportRole",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/ImportRole",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
                           "version": "2.93.0"
@@ -1499,7 +1496,7 @@
                       },
                       "Resource": {
                         "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/Resource",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                           "aws:cdk:cloudformation:props": {
@@ -1530,11 +1527,11 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Resource",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalableTarget",
                       "aws:cdk:cloudformation:props": {
-                        "maxCapacity": 10,
+                        "maxCapacity": 20,
                         "minCapacity": 1,
                         "resourceId": {
                           "Fn::Join": [
@@ -1571,19 +1568,19 @@
                   },
                   "step-metric-scaling-chrome": {
                     "id": "step-metric-scaling-chrome",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome",
+                    "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome",
                     "children": {
                       "LowerPolicy": {
                         "id": "LowerPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
                               "aws:cdk:cloudformation:props": {
-                                "policyName": "dentalxchageqaautomationstackDentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeLowerPolicyCA88765F",
+                                "policyName": "dentalxseleniumautomationstackDentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeLowerPolicyD990F0E0",
                                 "policyType": "StepScaling",
                                 "scalingTargetId": {
                                   "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargetchrome800FE5F9"
@@ -1614,11 +1611,11 @@
                       },
                       "LowerAlarm": {
                         "id": "LowerAlarm",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerAlarm",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerAlarm",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerAlarm/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerAlarm/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
@@ -1667,15 +1664,15 @@
                       },
                       "UpperPolicy": {
                         "id": "UpperPolicy",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperPolicy",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperPolicy",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperPolicy/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperPolicy/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApplicationAutoScaling::ScalingPolicy",
                               "aws:cdk:cloudformation:props": {
-                                "policyName": "dentalxchageqaautomationstackDentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeUpperPolicyC2EB66C3",
+                                "policyName": "dentalxseleniumautomationstackDentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeUpperPolicy447F7A6D",
                                 "policyType": "StepScaling",
                                 "scalingTargetId": {
                                   "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargetchrome800FE5F9"
@@ -1706,11 +1703,11 @@
                       },
                       "UpperAlarm": {
                         "id": "UpperAlarm",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperAlarm",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperAlarm",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperAlarm/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperAlarm/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
@@ -1743,7 +1740,7 @@
                                 "namespace": "AWS/ECS",
                                 "period": 10,
                                 "statistic": "Maximum",
-                                "threshold": 80
+                                "threshold": 60
                               }
                             },
                             "constructInfo": {
@@ -1771,7 +1768,7 @@
               },
               "LoadBalancerDNS": {
                 "id": "LoadBalancerDNS",
-                "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/LoadBalancerDNS",
+                "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/LoadBalancerDNS",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnOutput",
                   "version": "2.93.0"
@@ -1785,11 +1782,11 @@
           },
           "CDKMetadata": {
             "id": "CDKMetadata",
-            "path": "dentalxchage-qa-automation-stack/CDKMetadata",
+            "path": "dentalx-selenium-automation-stack/CDKMetadata",
             "children": {
               "Default": {
                 "id": "Default",
-                "path": "dentalxchage-qa-automation-stack/CDKMetadata/Default",
+                "path": "dentalx-selenium-automation-stack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.93.0"

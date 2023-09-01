@@ -7,13 +7,15 @@ const env = {
   account: process.env.CDK_DEFAULT_ACCOUNT,
 };
 
-const stack = new Stack(app, 'dentalxchage-qa-automation-stack', { env });
+const stack = new Stack(app, 'dentalx-selenium-automation-stack', { env });
 
 new SeleniumGridConstruct(stack, 'DentalXChangeSeleniumCluster', {
   cpu: 1024,
   memory: 2048,
+  nodeCpu: 512,
+  nodeMemory: 1024,
   seleniumNodeMaxInstances: 100,
   seleniumNodeMaxSessions: 100,
   minInstances: 1,
-  maxInstances: 10,
+  maxInstances: 20,
 });

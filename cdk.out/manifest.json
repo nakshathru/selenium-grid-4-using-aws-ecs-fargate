@@ -1,244 +1,232 @@
 {
   "version": "33.0.0",
   "artifacts": {
-    "dentalxchage-qa-automation-stack": {
+    "dentalx-selenium-automation-stack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://877969058937/us-east-1",
       "properties": {
-        "templateFile": "dentalxchage-qa-automation-stack.template.json",
+        "templateFile": "dentalx-selenium-automation-stack.template.json",
         "validateOnSynth": false
       },
       "metadata": {
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/cluster/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterclusterA1039259"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterclusterDefaultServiceDiscoveryNamespace7FA6E58C"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb-sg/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702"
+            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbsg7211715A"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4444": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumsgfromdentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C84444F8F893CF"
-          }
-        ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumsgfromdentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B544440A6DBF7F"
-          }
-        ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbBBD6385B"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5"
-          }
-        ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGrouptodentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B544444F08A0D8"
-          }
-        ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener803B48C806"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702"
+          }
+        ],
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbsgB657A66E:4444": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumsgfromdentalxseleniumautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbsgB657A66E4444455806CC"
+          }
+        ],
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefTaskRole4E921648"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/DefaultPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefTaskRoleDefaultPolicyC42D98F4"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdef45483497"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container/LogGroup/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/selenium-hub-container/LogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefseleniumhubcontainerLogGroupDEB2661A"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefExecutionRoleC049BA1E"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/DefaultPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefExecutionRoleDefaultPolicyDB3CC866"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service/Service": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service/Service": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumhubserviceService5B0D8991"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargethubRoleD270ACCF"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargethubC7300963"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubLowerPolicy29AE23D1"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerAlarm/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/LowerAlarm/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubLowerAlarm81C72659"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubUpperPolicy3BC7E9EF"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperAlarm/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/step-metric-scaling-hub/UpperAlarm/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubUpperAlarmED57700A"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdefTaskRoleD91139B4"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/DefaultPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdefTaskRoleDefaultPolicy93CE1903"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdef012DBD87"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container/LogGroup/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/selenium-chrome-container/LogGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdefseleniumchromecontainerLogGroup7725DC1E"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdefExecutionRole17AE0CCB"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/DefaultPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchrometaskdefExecutionRoleDefaultPolicy1F5CD66F"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-service/Service": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-service/Service": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterdentalxseleniumchromeserviceService5F4D5430"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargetchromeRole4C95C603"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargetchrome800FE5F9"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeLowerPolicyE2624C83"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerAlarm/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/LowerAlarm/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeLowerAlarmEE0CB7CB"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperPolicy/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeUpperPolicy9A034321"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperAlarm/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/step-metric-scaling-chrome/UpperAlarm/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeUpperAlarm7DAABA21"
           }
         ],
-        "/dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/LoadBalancerDNS": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/LoadBalancerDNS": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DentalXChangeSeleniumClusterLoadBalancerDNS78805658"
           }
         ],
-        "/dentalxchage-qa-automation-stack/CDKMetadata/Default": [
+        "/dentalx-selenium-automation-stack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ]
       },
-      "displayName": "dentalxchage-qa-automation-stack"
+      "displayName": "dentalx-selenium-automation-stack"
     },
     "Tree": {
       "type": "cdk:tree",

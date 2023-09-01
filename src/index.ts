@@ -4,7 +4,7 @@ import { CfnOutput, Duration } from 'aws-cdk-lib';
 import { AdjustmentType, ScalableTarget, ServiceNamespace } from 'aws-cdk-lib/aws-applicationautoscaling';
 import { Metric } from 'aws-cdk-lib/aws-cloudwatch';
 import { IVpc, Peer, Port, SecurityGroup, Vpc } from 'aws-cdk-lib/aws-ec2';
-import { AwsLogDriver, CfnCluster, Cluster, ContainerImage, FargateService, FargateTaskDefinition, ListenerConfig, Protocol } from 'aws-cdk-lib/aws-ecs';
+import { AwsLogDriver, CfnCluster, Cluster, ContainerImage, FargateService, FargateServiceProps, FargateTaskDefinition, ListenerConfig, Protocol } from 'aws-cdk-lib/aws-ecs';
 import { ApplicationLoadBalancer, ApplicationProtocol } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
 import { NamespaceType } from 'aws-cdk-lib/aws-servicediscovery';
 import { Construct } from 'constructs';
@@ -35,6 +35,10 @@ export interface ISeleniumGridProps {
 
   // Auto-scale maximum number of instances
   readonly maxInstances?: number;
+
+  readonly nodeCpu?: number;
+
+  readonly nodeMemory?: number
 }
 
 export interface IResourceDefinitionProps{
@@ -45,6 +49,7 @@ export interface IResourceDefinitionProps{
   identifier: string;
   minInstances: number;
   maxInstances: number;
+  name?: string;
 }
 
 export interface IServiceDefinitionProps{
@@ -54,6 +59,8 @@ export interface IServiceDefinitionProps{
   env: {[key: string]: string};
   readonly entryPoint?: string[];
   readonly command?: string[];
+  cpu: number;
+  memory: number;
 }
 
 export interface IScalingPolicyDefinitionProps{
@@ -70,11 +77,15 @@ export class SeleniumGridConstruct extends Construct {
   readonly vpc: IVpc;
   readonly seleniumVersion: string;
   readonly memory: number;
+  readonly cloudmapNamespace: string;
+  readonly serviceConnectDNS: string;
   readonly cpu: number;
   readonly seleniumNodeMaxInstances: number;
   readonly seleniumNodeMaxSessions: number;
   readonly minInstances: number;
   readonly maxInstances: number;
+  readonly nodeCpu: number;
+  readonly nodeMemory: number;
 
   constructor(scope: Construct, id: string, props: ISeleniumGridProps = {}) {
     super(scope, id);
@@ -83,21 +94,25 @@ export class SeleniumGridConstruct extends Construct {
     const getExistingVpc = Vpc.fromLookup(this, 'ImportVPC', { isDefault: false, vpcId: 'vpc-0c22a4472f6bddf04' });
 
     this.vpc = getExistingVpc ?? new Vpc(this, 'Vpc', { natGateways: 1 });
-    this.seleniumVersion = props.seleniumVersion ?? 'latest';
+    this.seleniumVersion = props.seleniumVersion ?? '4.11.0';
     this.memory = props.memory ?? 512;
     this.cpu = props.cpu ?? 256;
+    this.nodeCpu = props.nodeCpu ?? 512;
+    this.nodeMemory = props.nodeMemory ?? 1024;
     this.seleniumNodeMaxInstances = props.seleniumNodeMaxInstances ?? 5;
     this.seleniumNodeMaxSessions = props.seleniumNodeMaxSessions ?? 5;
     this.minInstances = props.minInstances ?? 1;
     this.maxInstances = props.maxInstances ?? 10;
+    this.cloudmapNamespace = 'dentalxchange-selenium'
+    this.serviceConnectDNS = 'dentalx-se-hub';
 
     // Cluster
     const cluster = new Cluster(this, 'cluster', {
       vpc: this.vpc,
       containerInsights: true,
-      clusterName: 'dentalxchange-selenium',
+      clusterName: 'dentalx-selenium-grid-cluster',
       defaultCloudMapNamespace: {
-        name: 'dentalx-selenium-grid',
+        name: this.cloudmapNamespace,
         type: NamespaceType.HTTP,
       },
     });
@@ -115,7 +130,24 @@ export class SeleniumGridConstruct extends Construct {
     }];
 
     // Create security group and add inbound and outbound traffic ports
-    var securityGroup = new SecurityGroup(this, 'dentalxchange-selenium-sg', {
+
+    const albSecurityGroup = new SecurityGroup(this, 'dentalxchange-selenium-alb-sg', {
+      vpc: cluster.vpc,
+      allowAllOutbound: true,
+    });
+
+    albSecurityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(80), 'Port 80 for inbound traffic');
+
+
+    // Setup Load balancer & register targets
+    const loadBalancer = new ApplicationLoadBalancer(this, 'dentalxchange-selenium-alb', {
+      vpc: this.vpc,
+      internetFacing: true,
+      loadBalancerName: 'dentalx-selenium-grid-alb',
+      securityGroup: albSecurityGroup
+    });
+
+    const securityGroup = new SecurityGroup(this, 'dentalxchange-selenium-sg', {
       vpc: cluster.vpc,
       allowAllOutbound: true,
     });
@@ -125,14 +157,7 @@ export class SeleniumGridConstruct extends Construct {
     securityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(5555), 'Port 5555 for inbound traffic');
     securityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(4442), 'Port 4442 for inbound traffic');
     securityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(4443), 'Port 4443 for inbound traffic');
-    securityGroup.addIngressRule(Peer.anyIpv4(), Port.tcp(80), 'Port 80 for inbound traffic');
 
-    // Setup Load balancer & register targets
-    var loadBalancer = new ApplicationLoadBalancer(this, 'dentalxchange-selenium-alb', {
-      vpc: this.vpc,
-      internetFacing: true,
-    });
-    loadBalancer.addSecurityGroup(securityGroup);
 
     // Register SeleniumHub resources
     this.createHubResources({
@@ -143,7 +168,7 @@ export class SeleniumGridConstruct extends Construct {
       stack: this,
       maxInstances: this.maxInstances,
       minInstances: this.minInstances,
-
+      name: 'dentalx-se-hub-service'
     });
 
     // Register Chrome node resources
@@ -155,6 +180,7 @@ export class SeleniumGridConstruct extends Construct {
       stack: this,
       maxInstances: this.maxInstances,
       minInstances: this.minInstances,
+      name: 'dentalx-se-chrome-node-service'
     }, 'selenium/node-chrome');
 
     // Register Firefox node resources
@@ -182,6 +208,8 @@ export class SeleniumGridConstruct extends Construct {
       },
       image: 'selenium/hub:'+this.seleniumVersion,
       healthCheckPeriod: 300,
+      memory: this.memory,
+      cpu: this.cpu
     });
 
     // Create autoscaling policy
@@ -222,13 +250,15 @@ export class SeleniumGridConstruct extends Construct {
     var service = this.createService({
       resource: options,
       env: {
-        SE_EVENT_BUS_HOST: 'dentalx-se-hub',
+        SE_EVENT_BUS_HOST: this.serviceConnectDNS,
         SE_EVENT_BUS_PUBLISH_PORT: '4442',
         SE_EVENT_BUS_SUBSCRIBE_PORT: '4443',
         NODE_MAX_INSTANCES: this.seleniumNodeMaxInstances.toString(),
         NODE_MAX_SESSION: this.seleniumNodeMaxSessions.toString(),
         SE_OPTS: '--log-level FINE',
       },
+      memory: this.nodeMemory,
+      cpu: this.nodeCpu,
       image: image+':'+this.seleniumVersion,
       entryPoint: ['sh', '-c'],
       command: ["PRIVATE=$(curl -s http://169.254.170.2/v2/metadata | jq -r '.Containers[0].Networks[0].IPv4Addresses[0]') ; export SE_OPTS=\"--host $PRIVATE\" ; /opt/bin/entry_point.sh"],
@@ -253,13 +283,13 @@ export class SeleniumGridConstruct extends Construct {
 
     // Task and container definition
     const taskDefinition = new FargateTaskDefinition(stack, 'dentalx-selenium-'+identiifer+'-task-def', {
-      memoryLimitMiB: this.memory,
-      cpu: this.cpu,
+      memoryLimitMiB: options.memory,
+      cpu: options.cpu,
     });
     const containerDefinition = taskDefinition.addContainer('selenium-'+identiifer+'-container', {
       image: ContainerImage.fromRegistry(options.image),
-      memoryLimitMiB: this.memory,
-      cpu: this.cpu,
+      memoryLimitMiB: options.memory,
+      cpu: options.cpu,
       environment: options.env,
       essential: true,
       logging: new AwsLogDriver({
@@ -269,43 +299,80 @@ export class SeleniumGridConstruct extends Construct {
       command: options.command,
     });
 
-    if (options.healthCheckPeriod) {
-      containerDefinition.addPortMappings({
-        containerPort: 4444,
-        hostPort: 4444,
-        protocol: Protocol.TCP,
-      },
-      {
-        containerPort: 4443,
-        hostPort: 4443,
-        protocol: Protocol.TCP,
-      },
-      {
-        containerPort: 4442,
-        hostPort: 4442,
-        protocol: Protocol.TCP,
-      });
-    } else {
-      containerDefinition.addPortMappings({
-        containerPort: 5555,
-        hostPort: 5555,
-        protocol: Protocol.TCP,
-      });
-    }
-
-
-    // Setup Fargate service
-    return new FargateService(stack, 'dentalx-selenium-'+identiifer+'-service', {
+    let serviceConfig: FargateServiceProps = {
       cluster: cluster,
       taskDefinition: taskDefinition,
-      minHealthyPercent: 75,
-      maxHealthyPercent: 100,
+      minHealthyPercent: 100,
+      maxHealthyPercent: 200,
       securityGroups: [securityGroup],
       enableExecuteCommand: true,
       desiredCount: 1,
       assignPublicIp: false,
-      healthCheckGracePeriod: options.healthCheckPeriod?Duration.seconds(options.healthCheckPeriod):undefined,
+      serviceName: options.resource.name
+    }
+
+    containerDefinition.addPortMappings({
+      containerPort: 4444,
+      hostPort: 4444,
+      protocol: Protocol.TCP,
+      name: 'selenium-hub-container-4444-tcp'
+    },
+    {
+      containerPort: 4443,
+      hostPort: 4443,
+      protocol: Protocol.TCP,
+      name: 'selenium-hub-container-4443-tcp'
+    },
+    {
+      containerPort: 4442,
+      hostPort: 4442,
+      protocol: Protocol.TCP,
+      name: 'selenium-hub-container-4442-tcp'
+    },
+    {
+      containerPort: 5555,
+      hostPort: 5555,
+      protocol: Protocol.TCP,
+      
+      name: 'selenium-node-container-5555-tcp'
     });
+
+    if(options.healthCheckPeriod){
+
+      serviceConfig = {
+        ...serviceConfig,
+        healthCheckGracePeriod :Duration.seconds(options.healthCheckPeriod),
+        serviceConnectConfiguration: {
+          namespace: this.cloudmapNamespace,
+          services: [
+            {
+              portMappingName: 'selenium-hub-container-4443-tcp',
+              discoveryName: 'dentalx-se-sub',
+              dnsName: this.serviceConnectDNS,
+              port: 4443
+            },
+            {
+              portMappingName: 'selenium-hub-container-4442-tcp',
+              discoveryName: 'dentalx-se-pub',
+              dnsName: this.serviceConnectDNS,
+              port: 4442
+            }
+          ]
+        }
+      }
+
+    }
+    else {
+      serviceConfig = {
+        ...serviceConfig,
+        serviceConnectConfiguration: {
+          namespace: this.cloudmapNamespace,
+        }
+      }
+    }
+
+    // Setup Fargate service
+    return new FargateService(stack, 'dentalx-selenium-'+identiifer+'-service', serviceConfig);
   }
 
   createScalingPolicy(options: IScalingPolicyDefinitionProps) {
@@ -337,13 +404,13 @@ export class SeleniumGridConstruct extends Construct {
 
     // Define Scaling policies (scale-in and scale-out)
     // Remove one instance if CPUUtilization is less than 30%,
-    // Add three instance if the CPUUtilization is greater than 70%
+    // Add three instance if the CPUUtilization is greater than 60%
     target.scaleOnMetric('step-metric-scaling-'+identifier, {
       metric: workerUtilizationMetric,
       adjustmentType: AdjustmentType.CHANGE_IN_CAPACITY,
       scalingSteps: [
         { upper: 30, change: -1 },
-        { lower: 80, change: +3 },
+        { lower: 60, change: +3 },
       ],
       cooldown: Duration.seconds(180),
     });
