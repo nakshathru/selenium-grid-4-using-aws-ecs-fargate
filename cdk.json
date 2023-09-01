@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/aws-helper.ts",
+  "app": "npx ts-node --prefer-ts-exts src/selenium-grid.app.ts",
   "context": {
     "@aws-cdk/core:newStyleStackSynthesis": false,
     "@aws-cdk/core:stackRelativeExports": false,

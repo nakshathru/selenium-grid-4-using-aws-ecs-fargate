@@ -4,14 +4,6 @@
     "id": "App",
     "path": "",
     "children": {
-      "Tree": {
-        "id": "Tree",
-        "path": "Tree",
-        "constructInfo": {
-          "fqn": "@aws-cdk/core.Construct",
-          "version": "1.204.0"
-        }
-      },
       "dentalxchage-qa-automation-stack": {
         "id": "dentalxchage-qa-automation-stack",
         "path": "dentalxchage-qa-automation-stack",
@@ -28,38 +20,38 @@
                     "id": "PublicSubnet1",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PublicSubnet1",
                     "constructInfo": {
-                      "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.93.0"
                     }
                   },
                   "PublicSubnet2": {
                     "id": "PublicSubnet2",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PublicSubnet2",
                     "constructInfo": {
-                      "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.93.0"
                     }
                   },
                   "PrivateSubnet1": {
                     "id": "PrivateSubnet1",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PrivateSubnet1",
                     "constructInfo": {
-                      "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.93.0"
                     }
                   },
                   "PrivateSubnet2": {
                     "id": "PrivateSubnet2",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/ImportVPC/PrivateSubnet2",
                     "constructInfo": {
-                      "fqn": "@aws-cdk/core.Resource",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.Resource",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/core.Resource",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.93.0"
                 }
               },
               "cluster": {
@@ -97,14 +89,38 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.CfnCluster",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.CfnCluster",
+                      "version": "2.93.0"
+                    }
+                  },
+                  "DefaultServiceDiscoveryNamespace": {
+                    "id": "DefaultServiceDiscoveryNamespace",
+                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/cluster/DefaultServiceDiscoveryNamespace/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ServiceDiscovery::HttpNamespace",
+                          "aws:cdk:cloudformation:props": {
+                            "name": "dentalx-selenium-grid"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_servicediscovery.CfnHttpNamespace",
+                          "version": "2.93.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_servicediscovery.HttpNamespace",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-ecs.Cluster",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_ecs.Cluster",
+                  "version": "2.93.0"
                 }
               },
               "dentalxchange-selenium-sg": {
@@ -166,8 +182,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroup",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                      "version": "2.93.0"
                     }
                   },
                   "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4444": {
@@ -176,7 +192,6 @@
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                       "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
                         "description": "Load balancer to target",
                         "fromPort": 4444,
                         "groupId": {
@@ -185,6 +200,7 @@
                             "GroupId"
                           ]
                         },
+                        "ipProtocol": "tcp",
                         "sourceSecurityGroupId": {
                           "Fn::GetAtt": [
                             "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
@@ -195,8 +211,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
+                      "version": "2.93.0"
                     }
                   },
                   "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444": {
@@ -205,7 +221,6 @@
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
                       "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
                         "description": "Load balancer to target",
                         "fromPort": 4444,
                         "groupId": {
@@ -214,6 +229,7 @@
                             "GroupId"
                           ]
                         },
+                        "ipProtocol": "tcp",
                         "sourceSecurityGroupId": {
                           "Fn::GetAtt": [
                             "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
@@ -224,188 +240,14 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4442": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4442",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4442",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "fromPort": 4442,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 4442
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4442": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4442",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4442",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "fromPort": 4442,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 4442
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4443": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4443",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:4443",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "fromPort": 4443,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 4443
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4443": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4443",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4443",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "fromPort": 4443,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 4443
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:5555": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:5555",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroupD29987C8:5555",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "fromPort": 5555,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 5555
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:5555": {
-                    "id": "from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:5555",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/from dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:5555",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupIngress",
-                      "aws:cdk:cloudformation:props": {
-                        "ipProtocol": "tcp",
-                        "description": "Load balancer to target",
-                        "fromPort": 5555,
-                        "groupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "sourceSecurityGroupId": {
-                          "Fn::GetAtt": [
-                            "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                            "GroupId"
-                          ]
-                        },
-                        "toPort": 5555
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupIngress",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupIngress",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-ec2.SecurityGroup",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+                  "version": "2.93.0"
                 }
               },
               "dentalxchange-selenium-alb": {
@@ -447,8 +289,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnLoadBalancer",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_elasticloadbalancingv2.CfnLoadBalancer",
+                      "version": "2.93.0"
                     }
                   },
                   "SecurityGroup": {
@@ -469,42 +311,14 @@
                                 "fromPort": 80,
                                 "toPort": 80,
                                 "description": "Allow from anyone on port 80"
-                              },
-                              {
-                                "cidrIp": "0.0.0.0/0",
-                                "ipProtocol": "tcp",
-                                "fromPort": 4442,
-                                "toPort": 4442,
-                                "description": "Allow from anyone on port 4442"
-                              },
-                              {
-                                "cidrIp": "0.0.0.0/0",
-                                "ipProtocol": "tcp",
-                                "fromPort": 4443,
-                                "toPort": 4443,
-                                "description": "Allow from anyone on port 4443"
-                              },
-                              {
-                                "cidrIp": "0.0.0.0/0",
-                                "ipProtocol": "tcp",
-                                "fromPort": 4444,
-                                "toPort": 4444,
-                                "description": "Allow from anyone on port 4444"
-                              },
-                              {
-                                "cidrIp": "0.0.0.0/0",
-                                "ipProtocol": "tcp",
-                                "fromPort": 5555,
-                                "toPort": 5555,
-                                "description": "Allow from anyone on port 5555"
                               }
                             ],
                             "vpcId": "vpc-0c22a4472f6bddf04"
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroup",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroup",
+                          "version": "2.93.0"
                         }
                       },
                       "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4444": {
@@ -513,13 +327,6 @@
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
                           "aws:cdk:cloudformation:props": {
-                            "groupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                                "GroupId"
-                              ]
-                            },
-                            "ipProtocol": "tcp",
                             "description": "Load balancer to target",
                             "destinationSecurityGroupId": {
                               "Fn::GetAtt": [
@@ -528,105 +335,25 @@
                               ]
                             },
                             "fromPort": 4444,
+                            "groupId": {
+                              "Fn::GetAtt": [
+                                "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
+                                "GroupId"
+                              ]
+                            },
+                            "ipProtocol": "tcp",
                             "toPort": 4444
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupEgress",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4442": {
-                        "id": "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4442",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4442",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
-                          "aws:cdk:cloudformation:props": {
-                            "groupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                                "GroupId"
-                              ]
-                            },
-                            "ipProtocol": "tcp",
-                            "description": "Load balancer to target",
-                            "destinationSecurityGroupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                                "GroupId"
-                              ]
-                            },
-                            "fromPort": 4442,
-                            "toPort": 4442
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupEgress",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4443": {
-                        "id": "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4443",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:4443",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
-                          "aws:cdk:cloudformation:props": {
-                            "groupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                                "GroupId"
-                              ]
-                            },
-                            "ipProtocol": "tcp",
-                            "description": "Load balancer to target",
-                            "destinationSecurityGroupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                                "GroupId"
-                              ]
-                            },
-                            "fromPort": 4443,
-                            "toPort": 4443
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupEgress",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:5555": {
-                        "id": "to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:5555",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/SecurityGroup/to dentalxchageqaautomationstackDentalXChangeSeleniumClusterdentalxchangeseleniumsgA34E99B5:5555",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::EC2::SecurityGroupEgress",
-                          "aws:cdk:cloudformation:props": {
-                            "groupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumalbSecurityGroup8BF164E5",
-                                "GroupId"
-                              ]
-                            },
-                            "ipProtocol": "tcp",
-                            "description": "Load balancer to target",
-                            "destinationSecurityGroupId": {
-                              "Fn::GetAtt": [
-                                "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702",
-                                "GroupId"
-                              ]
-                            },
-                            "fromPort": 5555,
-                            "toPort": 5555
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-ec2.CfnSecurityGroupEgress",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_ec2.CfnSecurityGroupEgress",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ec2.SecurityGroup",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ec2.SecurityGroup",
+                      "version": "2.93.0"
                     }
                   },
                   "Listener80": {
@@ -655,8 +382,8 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnListener",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_elasticloadbalancingv2.CfnListener",
+                          "version": "2.93.0"
                         }
                       },
                       "ECSGroup": {
@@ -685,314 +412,26 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnTargetGroup",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationTargetGroup",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationListener",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "Listener4442": {
-                    "id": "Listener4442",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4442",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4442/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
-                          "aws:cdk:cloudformation:props": {
-                            "defaultActions": [
-                              {
-                                "type": "forward",
-                                "targetGroupArn": {
-                                  "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener4442ECSGroup197105FC"
-                                }
-                              }
-                            ],
-                            "loadBalancerArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbBBD6385B"
-                            },
-                            "port": 4442,
-                            "protocol": "HTTP"
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnListener",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "ECSGroup": {
-                        "id": "ECSGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4442/ECSGroup",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4442/ECSGroup/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
-                              "aws:cdk:cloudformation:props": {
-                                "healthCheckIntervalSeconds": 120,
-                                "healthCheckPath": "/status",
-                                "healthCheckPort": "4444",
-                                "port": 4442,
-                                "protocol": "HTTP",
-                                "targetGroupAttributes": [
-                                  {
-                                    "key": "stickiness.enabled",
-                                    "value": "false"
-                                  }
-                                ],
-                                "targetType": "ip",
-                                "vpcId": "vpc-0c22a4472f6bddf04"
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnTargetGroup",
-                              "version": "1.204.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationTargetGroup",
-                          "version": "1.204.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationListener",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "Listener4443": {
-                    "id": "Listener4443",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4443",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4443/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
-                          "aws:cdk:cloudformation:props": {
-                            "defaultActions": [
-                              {
-                                "type": "forward",
-                                "targetGroupArn": {
-                                  "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener4443ECSGroup5166B159"
-                                }
-                              }
-                            ],
-                            "loadBalancerArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbBBD6385B"
-                            },
-                            "port": 4443,
-                            "protocol": "HTTP"
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnListener",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "ECSGroup": {
-                        "id": "ECSGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4443/ECSGroup",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4443/ECSGroup/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
-                              "aws:cdk:cloudformation:props": {
-                                "healthCheckIntervalSeconds": 120,
-                                "healthCheckPath": "/status",
-                                "healthCheckPort": "4444",
-                                "port": 4443,
-                                "protocol": "HTTP",
-                                "targetGroupAttributes": [
-                                  {
-                                    "key": "stickiness.enabled",
-                                    "value": "false"
-                                  }
-                                ],
-                                "targetType": "ip",
-                                "vpcId": "vpc-0c22a4472f6bddf04"
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnTargetGroup",
-                              "version": "1.204.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationTargetGroup",
-                          "version": "1.204.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationListener",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "Listener4444": {
-                    "id": "Listener4444",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4444",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4444/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
-                          "aws:cdk:cloudformation:props": {
-                            "defaultActions": [
-                              {
-                                "type": "forward",
-                                "targetGroupArn": {
-                                  "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener4444ECSGroupC66970BB"
-                                }
-                              }
-                            ],
-                            "loadBalancerArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbBBD6385B"
-                            },
-                            "port": 4444,
-                            "protocol": "HTTP"
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnListener",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "ECSGroup": {
-                        "id": "ECSGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4444/ECSGroup",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener4444/ECSGroup/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
-                              "aws:cdk:cloudformation:props": {
-                                "healthCheckIntervalSeconds": 120,
-                                "healthCheckPath": "/status",
-                                "healthCheckPort": "4444",
-                                "port": 4444,
-                                "protocol": "HTTP",
-                                "targetGroupAttributes": [
-                                  {
-                                    "key": "stickiness.enabled",
-                                    "value": "false"
-                                  }
-                                ],
-                                "targetType": "ip",
-                                "vpcId": "vpc-0c22a4472f6bddf04"
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnTargetGroup",
-                              "version": "1.204.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationTargetGroup",
-                          "version": "1.204.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationListener",
-                      "version": "1.204.0"
-                    }
-                  },
-                  "Listener5555": {
-                    "id": "Listener5555",
-                    "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener5555",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener5555/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::Listener",
-                          "aws:cdk:cloudformation:props": {
-                            "defaultActions": [
-                              {
-                                "type": "forward",
-                                "targetGroupArn": {
-                                  "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener5555ECSGroup08D8A4F5"
-                                }
-                              }
-                            ],
-                            "loadBalancerArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbBBD6385B"
-                            },
-                            "port": 5555,
-                            "protocol": "HTTP"
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnListener",
-                          "version": "1.204.0"
-                        }
-                      },
-                      "ECSGroup": {
-                        "id": "ECSGroup",
-                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener5555/ECSGroup",
-                        "children": {
-                          "Resource": {
-                            "id": "Resource",
-                            "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener5555/ECSGroup/Resource",
-                            "attributes": {
-                              "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
-                              "aws:cdk:cloudformation:props": {
-                                "healthCheckIntervalSeconds": 120,
-                                "healthCheckPath": "/status",
-                                "healthCheckPort": "4444",
-                                "port": 5555,
-                                "protocol": "HTTP",
-                                "targetGroupAttributes": [
-                                  {
-                                    "key": "stickiness.enabled",
-                                    "value": "false"
-                                  }
-                                ],
-                                "targetType": "ip",
-                                "vpcId": "vpc-0c22a4472f6bddf04"
-                              }
-                            },
-                            "constructInfo": {
-                              "fqn": "@aws-cdk/aws-elasticloadbalancingv2.CfnTargetGroup",
-                              "version": "1.204.0"
-                            }
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationTargetGroup",
-                          "version": "1.204.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationListener",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationListener",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-elasticloadbalancingv2.ApplicationLoadBalancer",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationLoadBalancer",
+                  "version": "2.93.0"
                 }
               },
               "dentalx-selenium-hub-task-def": {
@@ -1003,6 +442,14 @@
                     "id": "TaskRole",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole",
                     "children": {
+                      "ImportTaskRole": {
+                        "id": "ImportTaskRole",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/ImportTaskRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.93.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
                         "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/TaskRole/Resource",
@@ -1024,8 +471,8 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.CfnRole",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.93.0"
                         }
                       },
                       "DefaultPolicy": {
@@ -1076,20 +523,20 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.Policy",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-iam.Role",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.93.0"
                     }
                   },
                   "Resource": {
@@ -1119,11 +566,6 @@
                               {
                                 "containerPort": 4442,
                                 "hostPort": 4442,
-                                "protocol": "tcp"
-                              },
-                              {
-                                "containerPort": 5555,
-                                "hostPort": 5555,
                                 "protocol": "tcp"
                               }
                             ],
@@ -1167,8 +609,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.CfnTaskDefinition",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+                      "version": "2.93.0"
                     }
                   },
                   "selenium-hub-container": {
@@ -1187,26 +629,34 @@
                               "aws:cdk:cloudformation:props": {}
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-logs.CfnLogGroup",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_logs.CfnLogGroup",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-logs.LogGroup",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_logs.LogGroup",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.ContainerDefinition",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.ContainerDefinition",
+                      "version": "2.93.0"
                     }
                   },
                   "ExecutionRole": {
                     "id": "ExecutionRole",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole",
                     "children": {
+                      "ImportExecutionRole": {
+                        "id": "ImportExecutionRole",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/ImportExecutionRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.93.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
                         "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-task-def/ExecutionRole/Resource",
@@ -1228,8 +678,8 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.CfnRole",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.93.0"
                         }
                       },
                       "DefaultPolicy": {
@@ -1269,26 +719,26 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.Policy",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-iam.Role",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-ecs.FargateTaskDefinition",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+                  "version": "2.93.0"
                 }
               },
               "dentalx-selenium-hub-service": {
@@ -1306,7 +756,12 @@
                         },
                         "deploymentConfiguration": {
                           "maximumPercent": 100,
-                          "minimumHealthyPercent": 75
+                          "minimumHealthyPercent": 75,
+                          "alarms": {
+                            "alarmNames": [],
+                            "enable": false,
+                            "rollback": false
+                          }
                         },
                         "desiredCount": 1,
                         "enableEcsManagedTags": false,
@@ -1320,42 +775,14 @@
                             },
                             "containerName": "selenium-hub-container",
                             "containerPort": 4444
-                          },
-                          {
-                            "targetGroupArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener4442ECSGroup197105FC"
-                            },
-                            "containerName": "selenium-hub-container",
-                            "containerPort": 4442
-                          },
-                          {
-                            "targetGroupArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener4443ECSGroup5166B159"
-                            },
-                            "containerName": "selenium-hub-container",
-                            "containerPort": 4443
-                          },
-                          {
-                            "targetGroupArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener4444ECSGroupC66970BB"
-                            },
-                            "containerName": "selenium-hub-container",
-                            "containerPort": 4444
-                          },
-                          {
-                            "targetGroupArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener5555ECSGroup08D8A4F5"
-                            },
-                            "containerName": "selenium-hub-container",
-                            "containerPort": 5555
                           }
                         ],
                         "networkConfiguration": {
                           "awsvpcConfiguration": {
-                            "assignPublicIp": "ENABLED",
+                            "assignPublicIp": "DISABLED",
                             "subnets": [
-                              "subnet-0d12f611a081ada2c",
-                              "subnet-0baafba024fedb313"
+                              "subnet-0ea2499f9c175caa9",
+                              "subnet-0c6fde2580c368597"
                             ],
                             "securityGroups": [
                               {
@@ -1373,14 +800,14 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.CfnService",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.CfnService",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-ecs.FargateService",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_ecs.FargateService",
+                  "version": "2.93.0"
                 }
               },
               "selenium-scalableTarget-hub": {
@@ -1391,6 +818,14 @@
                     "id": "Role",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role",
                     "children": {
+                      "ImportRole": {
+                        "id": "ImportRole",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/ImportRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.93.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
                         "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-hub/Role/Resource",
@@ -1412,14 +847,14 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.CfnRole",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-iam.Role",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.93.0"
                     }
                   },
                   "Resource": {
@@ -1459,8 +894,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalableTarget",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+                      "version": "2.93.0"
                     }
                   },
                   "step-metric-scaling-hub": {
@@ -1496,14 +931,14 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalingPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-applicationautoscaling.StepScalingAction",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+                          "version": "2.93.0"
                         }
                       },
                       "LowerAlarm": {
@@ -1516,14 +951,13 @@
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
-                                "comparisonOperator": "LessThanOrEqualToThreshold",
-                                "evaluationPeriods": 1,
                                 "alarmActions": [
                                   {
                                     "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubLowerPolicy29AE23D1"
                                   }
                                 ],
                                 "alarmDescription": "Lower threshold scaling alarm",
+                                "comparisonOperator": "LessThanOrEqualToThreshold",
                                 "dimensions": [
                                   {
                                     "name": "ClusterName",
@@ -1541,6 +975,7 @@
                                     }
                                   }
                                 ],
+                                "evaluationPeriods": 1,
                                 "metricName": "CPUUtilization",
                                 "namespace": "AWS/ECS",
                                 "period": 10,
@@ -1549,14 +984,14 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_cloudwatch.Alarm",
+                          "version": "2.93.0"
                         }
                       },
                       "UpperPolicy": {
@@ -1588,14 +1023,14 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalingPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-applicationautoscaling.StepScalingAction",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+                          "version": "2.93.0"
                         }
                       },
                       "UpperAlarm": {
@@ -1608,14 +1043,13 @@
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
-                                "comparisonOperator": "GreaterThanOrEqualToThreshold",
-                                "evaluationPeriods": 1,
                                 "alarmActions": [
                                   {
                                     "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargethubstepmetricscalinghubUpperPolicy3BC7E9EF"
                                   }
                                 ],
                                 "alarmDescription": "Upper threshold scaling alarm",
+                                "comparisonOperator": "GreaterThanOrEqualToThreshold",
                                 "dimensions": [
                                   {
                                     "name": "ClusterName",
@@ -1633,6 +1067,7 @@
                                     }
                                   }
                                 ],
+                                "evaluationPeriods": 1,
                                 "metricName": "CPUUtilization",
                                 "namespace": "AWS/ECS",
                                 "period": 10,
@@ -1641,26 +1076,26 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_cloudwatch.Alarm",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-applicationautoscaling.StepScalingPolicy",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicy",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-applicationautoscaling.ScalableTarget",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+                  "version": "2.93.0"
                 }
               },
               "dentalx-selenium-chrome-task-def": {
@@ -1671,6 +1106,14 @@
                     "id": "TaskRole",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole",
                     "children": {
+                      "ImportTaskRole": {
+                        "id": "ImportTaskRole",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/ImportTaskRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.93.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
                         "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/TaskRole/Resource",
@@ -1692,8 +1135,8 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.CfnRole",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.93.0"
                         }
                       },
                       "DefaultPolicy": {
@@ -1744,20 +1187,20 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.Policy",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-iam.Role",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.93.0"
                     }
                   },
                   "Resource": {
@@ -1782,21 +1225,6 @@
                             "name": "selenium-chrome-container",
                             "portMappings": [
                               {
-                                "containerPort": 4444,
-                                "hostPort": 4444,
-                                "protocol": "tcp"
-                              },
-                              {
-                                "containerPort": 4443,
-                                "hostPort": 4443,
-                                "protocol": "tcp"
-                              },
-                              {
-                                "containerPort": 4442,
-                                "hostPort": 4442,
-                                "protocol": "tcp"
-                              },
-                              {
                                 "containerPort": 5555,
                                 "hostPort": 5555,
                                 "protocol": "tcp"
@@ -1815,12 +1243,7 @@
                             "environment": [
                               {
                                 "name": "SE_EVENT_BUS_HOST",
-                                "value": {
-                                  "Fn::GetAtt": [
-                                    "DentalXChangeSeleniumClusterdentalxchangeseleniumalbBBD6385B",
-                                    "DNSName"
-                                  ]
-                                }
+                                "value": "dentalx-se-hub"
                               },
                               {
                                 "name": "SE_EVENT_BUS_PUBLISH_PORT",
@@ -1867,8 +1290,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.CfnTaskDefinition",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.CfnTaskDefinition",
+                      "version": "2.93.0"
                     }
                   },
                   "selenium-chrome-container": {
@@ -1887,26 +1310,34 @@
                               "aws:cdk:cloudformation:props": {}
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-logs.CfnLogGroup",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_logs.CfnLogGroup",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-logs.LogGroup",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_logs.LogGroup",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.ContainerDefinition",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.ContainerDefinition",
+                      "version": "2.93.0"
                     }
                   },
                   "ExecutionRole": {
                     "id": "ExecutionRole",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole",
                     "children": {
+                      "ImportExecutionRole": {
+                        "id": "ImportExecutionRole",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/ImportExecutionRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.93.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
                         "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-chrome-task-def/ExecutionRole/Resource",
@@ -1928,8 +1359,8 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.CfnRole",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.93.0"
                         }
                       },
                       "DefaultPolicy": {
@@ -1969,26 +1400,26 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-iam.CfnPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.Policy",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-iam.Role",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-ecs.FargateTaskDefinition",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_ecs.FargateTaskDefinition",
+                  "version": "2.93.0"
                 }
               },
               "dentalx-selenium-chrome-service": {
@@ -2006,7 +1437,12 @@
                         },
                         "deploymentConfiguration": {
                           "maximumPercent": 100,
-                          "minimumHealthyPercent": 75
+                          "minimumHealthyPercent": 75,
+                          "alarms": {
+                            "alarmNames": [],
+                            "enable": false,
+                            "rollback": false
+                          }
                         },
                         "desiredCount": 1,
                         "enableEcsManagedTags": false,
@@ -2014,10 +1450,10 @@
                         "launchType": "FARGATE",
                         "networkConfiguration": {
                           "awsvpcConfiguration": {
-                            "assignPublicIp": "ENABLED",
+                            "assignPublicIp": "DISABLED",
                             "subnets": [
-                              "subnet-0d12f611a081ada2c",
-                              "subnet-0baafba024fedb313"
+                              "subnet-0ea2499f9c175caa9",
+                              "subnet-0c6fde2580c368597"
                             ],
                             "securityGroups": [
                               {
@@ -2035,14 +1471,14 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-ecs.CfnService",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_ecs.CfnService",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-ecs.FargateService",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_ecs.FargateService",
+                  "version": "2.93.0"
                 }
               },
               "selenium-scalableTarget-chrome": {
@@ -2053,6 +1489,14 @@
                     "id": "Role",
                     "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role",
                     "children": {
+                      "ImportRole": {
+                        "id": "ImportRole",
+                        "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/ImportRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.93.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
                         "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/selenium-scalableTarget-chrome/Role/Resource",
@@ -2074,14 +1518,14 @@
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-iam.CfnRole",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-iam.Role",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.93.0"
                     }
                   },
                   "Resource": {
@@ -2121,8 +1565,8 @@
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalableTarget",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_applicationautoscaling.CfnScalableTarget",
+                      "version": "2.93.0"
                     }
                   },
                   "step-metric-scaling-chrome": {
@@ -2158,14 +1602,14 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalingPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-applicationautoscaling.StepScalingAction",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+                          "version": "2.93.0"
                         }
                       },
                       "LowerAlarm": {
@@ -2178,14 +1622,13 @@
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
-                                "comparisonOperator": "LessThanOrEqualToThreshold",
-                                "evaluationPeriods": 1,
                                 "alarmActions": [
                                   {
                                     "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeLowerPolicyE2624C83"
                                   }
                                 ],
                                 "alarmDescription": "Lower threshold scaling alarm",
+                                "comparisonOperator": "LessThanOrEqualToThreshold",
                                 "dimensions": [
                                   {
                                     "name": "ClusterName",
@@ -2203,6 +1646,7 @@
                                     }
                                   }
                                 ],
+                                "evaluationPeriods": 1,
                                 "metricName": "CPUUtilization",
                                 "namespace": "AWS/ECS",
                                 "period": 10,
@@ -2211,14 +1655,14 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_cloudwatch.Alarm",
+                          "version": "2.93.0"
                         }
                       },
                       "UpperPolicy": {
@@ -2250,14 +1694,14 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-applicationautoscaling.CfnScalingPolicy",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_applicationautoscaling.CfnScalingPolicy",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-applicationautoscaling.StepScalingAction",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_applicationautoscaling.StepScalingAction",
+                          "version": "2.93.0"
                         }
                       },
                       "UpperAlarm": {
@@ -2270,14 +1714,13 @@
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
                               "aws:cdk:cloudformation:props": {
-                                "comparisonOperator": "GreaterThanOrEqualToThreshold",
-                                "evaluationPeriods": 1,
                                 "alarmActions": [
                                   {
                                     "Ref": "DentalXChangeSeleniumClusterseleniumscalableTargetchromestepmetricscalingchromeUpperPolicy9A034321"
                                   }
                                 ],
                                 "alarmDescription": "Upper threshold scaling alarm",
+                                "comparisonOperator": "GreaterThanOrEqualToThreshold",
                                 "dimensions": [
                                   {
                                     "name": "ClusterName",
@@ -2295,6 +1738,7 @@
                                     }
                                   }
                                 ],
+                                "evaluationPeriods": 1,
                                 "metricName": "CPUUtilization",
                                 "namespace": "AWS/ECS",
                                 "period": 10,
@@ -2303,40 +1747,40 @@
                               }
                             },
                             "constructInfo": {
-                              "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
-                              "version": "1.204.0"
+                              "fqn": "aws-cdk-lib.aws_cloudwatch.CfnAlarm",
+                              "version": "2.93.0"
                             }
                           }
                         },
                         "constructInfo": {
-                          "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
-                          "version": "1.204.0"
+                          "fqn": "aws-cdk-lib.aws_cloudwatch.Alarm",
+                          "version": "2.93.0"
                         }
                       }
                     },
                     "constructInfo": {
-                      "fqn": "@aws-cdk/aws-applicationautoscaling.StepScalingPolicy",
-                      "version": "1.204.0"
+                      "fqn": "aws-cdk-lib.aws_applicationautoscaling.StepScalingPolicy",
+                      "version": "2.93.0"
                     }
                   }
                 },
                 "constructInfo": {
-                  "fqn": "@aws-cdk/aws-applicationautoscaling.ScalableTarget",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.aws_applicationautoscaling.ScalableTarget",
+                  "version": "2.93.0"
                 }
               },
               "LoadBalancerDNS": {
                 "id": "LoadBalancerDNS",
                 "path": "dentalxchage-qa-automation-stack/DentalXChangeSeleniumCluster/LoadBalancerDNS",
                 "constructInfo": {
-                  "fqn": "@aws-cdk/core.CfnOutput",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.93.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "@aws-cdk/core.Construct",
-              "version": "1.204.0"
+              "fqn": "constructs.Construct",
+              "version": "10.2.70"
             }
           },
           "CDKMetadata": {
@@ -2347,26 +1791,34 @@
                 "id": "Default",
                 "path": "dentalxchage-qa-automation-stack/CDKMetadata/Default",
                 "constructInfo": {
-                  "fqn": "@aws-cdk/core.CfnResource",
-                  "version": "1.204.0"
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.93.0"
                 }
               }
             },
             "constructInfo": {
-              "fqn": "@aws-cdk/core.Construct",
-              "version": "1.204.0"
+              "fqn": "constructs.Construct",
+              "version": "10.2.70"
             }
           }
         },
         "constructInfo": {
-          "fqn": "@aws-cdk/core.Stack",
-          "version": "1.204.0"
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.93.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.2.70"
         }
       }
     },
     "constructInfo": {
-      "fqn": "@aws-cdk/core.App",
-      "version": "1.204.0"
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.93.0"
     }
   }
 }
