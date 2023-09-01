@@ -39,10 +39,10 @@
             "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener803B48C806"
           }
         ],
-        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource": [
+        "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/se-hub-targetGroup/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F"
+            "data": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D"
           }
         ],
         "/dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-sg/Resource": [

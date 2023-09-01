@@ -57,6 +57,13 @@
       "FromPort": 80,
       "IpProtocol": "tcp",
       "ToPort": 80
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "Description": "Port 4444 for inbound traffic",
+      "FromPort": 4444,
+      "IpProtocol": "tcp",
+      "ToPort": 4444
      }
     ],
     "VpcId": "vpc-0c22a4472f6bddf04"
@@ -100,7 +107,7 @@
     "DefaultActions": [
      {
       "TargetGroupArn": {
-       "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F"
+       "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D"
       },
       "Type": "forward"
      }
@@ -115,7 +122,7 @@
     "aws:cdk:path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/Resource"
    }
   },
-  "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F": {
+  "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D": {
    "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
    "Properties": {
     "HealthCheckIntervalSeconds": 120,
@@ -133,7 +140,7 @@
     "VpcId": "vpc-0c22a4472f6bddf04"
    },
    "Metadata": {
-    "aws:cdk:path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource"
+    "aws:cdk:path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/se-hub-targetGroup/Resource"
    }
   },
   "DentalXChangeSeleniumClusterdentalxchangeseleniumsg39207702": {
@@ -433,7 +440,7 @@
       "ContainerName": "selenium-hub-container",
       "ContainerPort": 4444,
       "TargetGroupArn": {
-       "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F"
+       "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D"
       }
      }
     ],
@@ -488,8 +495,8 @@
    "DependsOn": [
     "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefTaskRoleDefaultPolicyC42D98F4",
     "DentalXChangeSeleniumClusterdentalxseleniumhubtaskdefTaskRole4E921648",
-    "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F",
-    "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener803B48C806"
+    "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener803B48C806",
+    "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D"
    ],
    "Metadata": {
     "aws:cdk:path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalx-selenium-hub-service/Service"

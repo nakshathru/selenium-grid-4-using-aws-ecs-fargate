@@ -148,6 +148,13 @@
                             "fromPort": 80,
                             "toPort": 80,
                             "description": "Port 80 for inbound traffic"
+                          },
+                          {
+                            "cidrIp": "0.0.0.0/0",
+                            "ipProtocol": "tcp",
+                            "fromPort": 4444,
+                            "toPort": 4444,
+                            "description": "Port 4444 for inbound traffic"
                           }
                         ],
                         "vpcId": "vpc-0c22a4472f6bddf04"
@@ -216,7 +223,7 @@
                               {
                                 "type": "forward",
                                 "targetGroupArn": {
-                                  "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F"
+                                  "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D"
                                 }
                               }
                             ],
@@ -232,13 +239,13 @@
                           "version": "2.93.0"
                         }
                       },
-                      "ECSGroup": {
-                        "id": "ECSGroup",
-                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup",
+                      "se-hub-targetGroup": {
+                        "id": "se-hub-targetGroup",
+                        "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/se-hub-targetGroup",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/ECSGroup/Resource",
+                            "path": "dentalx-selenium-automation-stack/DentalXChangeSeleniumCluster/dentalxchange-selenium-alb/Listener80/se-hub-targetGroup/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ElasticLoadBalancingV2::TargetGroup",
                               "aws:cdk:cloudformation:props": {
@@ -717,7 +724,7 @@
                         "loadBalancers": [
                           {
                             "targetGroupArn": {
-                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80ECSGroupA16BB55F"
+                              "Ref": "DentalXChangeSeleniumClusterdentalxchangeseleniumalbListener80sehubtargetGroup45F4CD7D"
                             },
                             "containerName": "selenium-hub-container",
                             "containerPort": 4444

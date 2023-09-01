@@ -75,6 +75,7 @@ export interface IScalingPolicyDefinitionProps{
 export class SeleniumGridConstruct extends Construct {
 
   readonly vpc: IVpc;
+  readonly cluster: Cluster
   readonly seleniumVersion: string;
   readonly memory: number;
   readonly cloudmapNamespace: string;
@@ -107,7 +108,7 @@ export class SeleniumGridConstruct extends Construct {
     this.serviceConnectDNS = 'dentalx-se-hub';
 
     // Cluster
-    const cluster = new Cluster(this, 'cluster', {
+    this.cluster = new Cluster(this, 'cluster', {
       vpc: this.vpc,
       containerInsights: true,
       clusterName: 'dentalx-selenium-grid-cluster',
@@ -117,8 +118,9 @@ export class SeleniumGridConstruct extends Construct {
       },
     });
 
+
     // Setup capacity providers and default strategy for cluster
-    const cfnEcsCluster = cluster.node.defaultChild as CfnCluster;
+    const cfnEcsCluster = this.cluster.node.defaultChild as CfnCluster;
     cfnEcsCluster.capacityProviders = ['FARGATE', 'FARGATE_SPOT'];
     cfnEcsCluster.defaultCapacityProviderStrategy = [{
       capacityProvider: 'FARGATE',
@@ -132,7 +134,7 @@ export class SeleniumGridConstruct extends Construct {
     // Create security group and add inbound and outbound traffic ports
 
     const albSecurityGroup = new SecurityGroup(this, 'dentalxchange-selenium-alb-sg', {
-      vpc: cluster.vpc,
+      vpc: this.cluster.vpc,
       allowAllOutbound: true,
     });
 
@@ -148,7 +150,7 @@ export class SeleniumGridConstruct extends Construct {
     });
 
     const securityGroup = new SecurityGroup(this, 'dentalxchange-selenium-sg', {
-      vpc: cluster.vpc,
+      vpc: this.cluster.vpc,
       allowAllOutbound: true,
     });
 
@@ -161,7 +163,7 @@ export class SeleniumGridConstruct extends Construct {
 
     // Register SeleniumHub resources
     this.createHubResources({
-      cluster: cluster,
+      cluster: this.cluster,
       identifier: 'hub',
       loadBalancer: loadBalancer,
       securityGroup: securityGroup,
@@ -173,7 +175,7 @@ export class SeleniumGridConstruct extends Construct {
 
     // Register Chrome node resources
     this.createBrowserResource({
-      cluster: cluster,
+      cluster: this.cluster,
       identifier: 'chrome',
       loadBalancer: loadBalancer,
       securityGroup: securityGroup,
@@ -228,7 +230,7 @@ export class SeleniumGridConstruct extends Construct {
       {
         containerName: 'selenium-hub-container',
         containerPort: 4444,
-        newTargetGroupId: 'ECS',
+        newTargetGroupId: 'se-hub-target',
         protocol: Protocol.TCP,
         listener: ListenerConfig.applicationListener(listener80, {
           protocol: ApplicationProtocol.HTTP,
@@ -242,6 +244,7 @@ export class SeleniumGridConstruct extends Construct {
         }),
       },
     );
+
   }
 
   createBrowserResource(options: IResourceDefinitionProps, image: string) {
@@ -338,12 +341,11 @@ export class SeleniumGridConstruct extends Construct {
     });
 
     if(options.healthCheckPeriod){
-
       serviceConfig = {
         ...serviceConfig,
         healthCheckGracePeriod :Duration.seconds(options.healthCheckPeriod),
         serviceConnectConfiguration: {
-          namespace: this.cloudmapNamespace,
+          namespace: this.cluster.defaultCloudMapNamespace?.namespaceName,
           services: [
             {
               portMappingName: 'selenium-hub-container-4443-tcp',
@@ -360,13 +362,12 @@ export class SeleniumGridConstruct extends Construct {
           ]
         }
       }
-
     }
     else {
       serviceConfig = {
         ...serviceConfig,
         serviceConnectConfiguration: {
-          namespace: this.cloudmapNamespace,
+          namespace: this.cluster.defaultCloudMapNamespace?.namespaceName,
         }
       }
     }
