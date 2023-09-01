@@ -1,20 +1,14 @@
 const { AwsCdkConstructLibrary } = require('projen');
 
 const project = new AwsCdkConstructLibrary({
-  author: 'Hari Ohm Prasath',
-  authorAddress: 'harrajag@amazon.com',
-  cdkVersion: '1.73.0',
-  name: 'scaled-testing-cdk',
-  repositoryUrl: 'https://github.com/harrajag/scaled-testing-cdk.git',
+  author: 'Nakshathru Ajay',
+  authorAddress: 'nakshathru@gmail.com',
+  cdkVersion: '2.93.0',
+  name: 'selenium-grid-4-ecs',
+  repositoryUrl: 'https://github.com/nakshathru/selenium-grid-4-using-aws-ecs-fargate.git',
   cdkDependencies: [
-    '@aws-cdk/core',
-    '@aws-cdk/aws-ec2',
-    '@aws-cdk/aws-ecs',
-    '@aws-cdk/aws-eks',
-    '@aws-cdk/aws-iam',
-    '@aws-cdk/aws-applicationautoscaling',
-    '@aws-cdk/aws-cloudwatch',
-    '@aws-cdk/aws-elasticloadbalancingv2',
+    'aws-cdk-lib',
+    'constructs'
   ],
 });
 

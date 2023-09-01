@@ -1,8 +1,8 @@
 {
-  "name": "scaled-testing-cdk",
+  "name": "selenium-grid-4-ecs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/harrajag/scaled-testing-cdk.git"
+    "url": "https://github.com/nakshathru/selenium-grid-4-using-aws-ecs-fargate.git"
   },
   "scripts": {
     "projen": "npx projen",
@@ -24,12 +24,12 @@
     "docgen": "npx projen docgen"
   },
   "author": {
-    "name": "Hari Ohm Prasath",
-    "email": "harrajag@amazon.com",
+    "name": "Nakshathru Ajay",
+    "email": "nakshathru@gmail.com",
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.73.0",
+    "@aws-cdk/assert": "^2.93.0",
     "@types/jest": "^26.0.20",
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
@@ -46,38 +46,25 @@
     "jsii-pacmak": "^1.16.0",
     "jsii-release": "^0.2.10",
     "json-schema": "^0.3.0",
-    "projen": "^0.14.6",
+    "projen": "^0.14.10",
     "standard-version": "^9.0.0",
     "ts-jest": "^26.4.4",
     "typescript": "^3.9.5"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-applicationautoscaling": "^1.73.0",
-    "@aws-cdk/aws-cloudwatch": "^1.73.0",
-    "@aws-cdk/aws-ec2": "^1.73.0",
-    "@aws-cdk/aws-ecs": "^1.73.0",
-    "@aws-cdk/aws-eks": "^1.73.0",
-    "@aws-cdk/aws-elasticloadbalancingv2": "^1.73.0",
-    "@aws-cdk/aws-iam": "^1.73.0",
-    "@aws-cdk/core": "^1.73.0",
+    "aws-cdk-lib": "^2.93.0",
     "constructs": "^3.2.27"
   },
   "dependencies": {
-    "@aws-cdk/aws-applicationautoscaling": "^1.73.0",
-    "@aws-cdk/aws-cloudwatch": "^1.73.0",
-    "@aws-cdk/aws-ec2": "^1.73.0",
-    "@aws-cdk/aws-ecs": "^1.73.0",
-    "@aws-cdk/aws-eks": "^1.73.0",
-    "@aws-cdk/aws-elasticloadbalancingv2": "^1.73.0",
-    "@aws-cdk/aws-iam": "^1.73.0",
-    "@aws-cdk/core": "^1.73.0"
+    "aws-cdk-lib": "^2.93.0",
+    "constructs": "^2.93.0"
   },
   "bundledDependencies": [],
   "keywords": [
     "cdk"
   ],
   "main": "lib/index.js",
-  "license": "MIT-0",
+  "license": "Apache-2.0",
   "version": "0.0.0",
   "jest": {
     "testMatch": [

@@ -1,19 +1,19 @@
-import * as cdk from '@aws-cdk/core';
+import { App, Stack } from 'aws-cdk-lib';
 import { SeleniumGridConstruct } from './index';
 
-const app = new cdk.App();
+const app = new App();
 const env = {
   region: process.env.CDK_DEFAULT_REGION,
   account: process.env.CDK_DEFAULT_ACCOUNT,
 };
 
-const stack = new cdk.Stack(app, 'testing-stack', { env });
+const stack = new Stack(app, 'dentalxchage-qa-automation-stack', { env });
 
-new SeleniumGridConstruct(stack, 'SeleniumHubCluster', {
+new SeleniumGridConstruct(stack, 'DentalXChangeSeleniumCluster', {
   cpu: 1024,
   memory: 2048,
-  seleniumNodeMaxInstances: 500,
-  seleniumNodeMaxSessions: 500,
+  seleniumNodeMaxInstances: 100,
+  seleniumNodeMaxSessions: 100,
   minInstances: 1,
-  maxInstances: 10
+  maxInstances: 10,
 });
