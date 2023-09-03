@@ -48,3 +48,6 @@ yarn-error.log*
 !/test
 !/tsconfig.jest.json
 !version.json
+sample-test-func/_results_/*
+sample-test-func/allure-results/*
+sample-test-func/reports/*
